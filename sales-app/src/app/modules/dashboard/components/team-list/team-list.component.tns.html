@@ -1,0 +1,43 @@
+<app-header></app-header>
+<GridLayout  rows="*, 40"  tkExampleTitle tkToggleNavButton >
+    <RadListView  [items]="teamlist" (itemTap)="Select($event)" class="list-group" (itemSwipeProgressEnded)="onSwipeCellFinished($event)"
+                  (itemSwipeProgressStarted)="onSwipeCellStarted($event)" (itemSwipeProgressChanged)="onCellSwiping($event)" swipeActions="true"> 
+  
+  
+          <StackLayout row="0">
+                <Label text="hjhgj"></Label>    
+              <ng-template tkListItemTemplate let-item="item" > 
+               
+                  <StackLayout orientation="vertical" class="list-group-item"  style="background-color:whitesmoke" > 
+                      <Label [text]="item.team_name"  class="list-group-item-text"></Label>
+                      <Label [text]="item.amount" style.textAlignment="right"></Label> 
+                      <StackLayout height="1" backgroundColor="Black"></StackLayout>
+                  </StackLayout> 
+              
+              </ng-template> 
+      
+  
+              <GridLayout *tkListItemSwipeTemplate columns="*, auto" class="gridLayoutLayout" >
+                  <StackLayout id="delete-view" col="1" class="deleteViewStackLayout" (tap)="onRightSwipeClick($event)" style="background-color: red">
+                      <Label text="delete" class="swipeTemplateLabel" verticalAlignment="center" horizontalAlignment="center" ></Label>
+                  </StackLayout>
+              </GridLayout>
+          </StackLayout>
+              
+    </RadListView>
+  
+      <!-- <StackLayout row="1">
+           <ng-template tkListViewFooter> 
+              <Label text="This is list footer with height 100" height="100" class="footer"></Label>
+           </ng-template> 
+      </StackLayout> -->
+      
+  </GridLayout>
+  <app-footer></app-footer>
+  <!-- <GridLayout columns="*,auto" backgroundColor="rgb(81,197,247, 0.8)" 
+      verticalAlignment="bottom" padding="10" fontSize="13" color="white"> 
+      <Label row="1" text="Total Amount"> 
+      </Label> 
+      <Label row="1" col="2" text={{amount.amount}} ></Label> 
+      
+      </GridLayout> -->
